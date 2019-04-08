@@ -1,0 +1,80 @@
+i set up an account in Mongodb and Heroku. and made a basic database in mongo to start the project
+
+-installed flask: sudo pip3 install flask
+
+Download and install MongoDB client 4.0.6 for Atlas
+wget -q https://git.io/fh7vV -O /tmp/setupmongodb.sh && source /tmp/setupmongodb.sh
+
+go to settings and set python to python3(was auto set to python2)
+                                                ==========
+deploy app to heroku                                                        https://youtu.be/15HJAVSID6A
+
+-heroku login--email and pass
+-check apps in heroku ---heroku apps
+
+git init --initialise git repo
+
+git add .
+git commit -m"initial commit"
+heroku git:remote -a project-3-gaa-players-2019
+git push heroku master                              (failed...no requirements.txt)
+sudo pip3 freeze --local > requirements.txt
+git add .
+git commit -m"added requirements.txt"
+git push heroku master                              (failed..missing procfile(file used to call app))
+echo web: python app.py > Procfile          (procfile is an instruction to heroku as to which file is used as èntry point to app)
+git add .
+git commit -m"added Procfile"
+git push heroku master
+
+heroku ps:scale web=1                   #command to heroku to get up and running
+go to heroku -- settings -- config vars and set:
+IP = 0.0.0.0 and PORT = 5000
+                                                    =========
+                                                    
+CONNECTING FLASK TO MONGODB ATLAS                                               https://youtu.be/Lh6Lj9Lsc2k
+
+now we install pymongo and dnspython:
+sudo pip3 install flask-pymongo
+sudo pip3 install dnspython             #for using new style connection string for mongodb atlas
+
+had to delete and reinstall requirements.txt as it hadnt populated with dnspython,pymongo etc
+
+                                                    
+did a commit to git repo
+
+in mongo..went to security-add new user and added user/pass
+then ipwhitelist...allow access from anywhere
+
+now we go to mongo to get our connection string:
+overview-connection-connect your application.... and copy the connection string:
+mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/test?retryWrites=true
+this is then pasted into quote on line 81 above(app.config["MONGO_URI"] = '') and then pasted into app.py
+                                                    ==========
+
+now open new command line:
+type: cd ..                         #to go up a level
+type: nano .bashrc                  #to open nano
+
+go down a few lines and paste in:
+export MONGO_URI="mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/project-3-GAA-Players-2019?retryWrites=true"
+        ###dont forget to put password in
+now ctrl x to exit....y to save...enter to return to bash
+
+close bash and open again
+
+now type: echo $MONGO_URI                   #and it prints out the connection
+
+go to settings in HEROKU - reveal config vars and put in new key and values:
+key = MONGO_URI
+value = mongodb+srv://shoot:<password>@myfirstcluster-ojgpn.mongodb.net/project3-gaa-players?retryWrites=true 
+
+now paste this into app.py under:                               #(under app = Flask(__name__))
+app.config["MONGO_DBNAME"] = 'project3-GAA-Players-2019-centric'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+
+
+made .gitignore file
+
+
+
