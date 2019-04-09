@@ -15,8 +15,9 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 mongo = PyMongo(app)                                #create instance of pymongo. add app into it with method called constructor method
 
 @app.route('/')
-def hello():
-    return 'Hello there....and fuck off'
+@app.route('/get_tasks')
+def get_tasks():
+    return render_template("player_profile.html", tasks=mongo.db.player_profile.find())
     
     
     
