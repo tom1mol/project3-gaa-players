@@ -11,11 +11,11 @@
     {% for task in tasks %}
     <li>
         <div class="collapsible-header"><i class="material-icons">expand</i>
-        <strong>{{task.club_county}}</strong> - {{task.county}}
+        <strong>{{task.club_county}} - {{task.county}}</strong>
         </div>
         <div class="collapsible-body">
             <span>
-                {{task.club}}
+                {{task.player_name}} -{{task.date_of_birth}}
             </span></div>
     </li>
     {% endfor %}
