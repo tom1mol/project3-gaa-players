@@ -20,6 +20,11 @@ def get_tasks():
     return render_template("player_profile.html", tasks=mongo.db.player_profile.find())
     
     
+
+@app.route('/add_profile_data')
+def add_profile_data():
+    return render_template('add_profile_data.html')
+    
     
 if __name__ == "__main__":          
     app.run(host=os.getenv('IP', '0.0.0.0'), 

@@ -1,12 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-        {% for task in tasks %}
-            {{task.club_county}}
-            {{task.sport}}
-            {{task.player_name}}
-            {{task.player_age}}
-            {{task.club}}
-            {{task.county}}
-        {% endfor %}
+        
+            
+        
+            
+        
+        
+        
+<ul class="collapsible" data-collapsible="expandable">
+    {% for task in tasks %}
+    <li>
+        <div class="collapsible-header"><i class="material-icons">expand</i>
+        <strong>{{task.club_county}}</strong> - {{task.county}}
+        </div>
+        <div class="collapsible-body">
+            <span>
+                {{task.club}}
+            </span></div>
+    </li>
+    {% endfor %}
+</ul>
     
 {% endblock %}
+
+
+<!--{{task.sport}}
+            {{task.player_name}}
+            {{task.player_age}}
+        //-->
