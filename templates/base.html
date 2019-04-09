@@ -2,9 +2,9 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  <!--http://google.github.io/material-design-icons/     //-->  <!-- https://material.io/tools/icons/?style=baseline  to get icons //-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> 
         <!--http://archives.materializecss.com/0.100.2/getting-started.html //-->
-
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 4DATEPICKER //-->
     </head>
     <body>
         
@@ -13,11 +13,25 @@
         {% endblock %}
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>                                     <!--https://cdnjs.com/libraries/jquery     //-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> FOR DATEPICKER   //-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>                      <!--http://archives.materializecss.com/0.100.2/getting-started.html    //-->
         <script type="text/javascript">
             $(document).ready(function() {
                 $('.collapsible').collapsible();
+                $('select').material_select();          /*images in select function..ad profile data */
+            
             });
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+            /*                $('.datepicker').datepicker();  (for it to work on chrome)  */
+                       
         </script>    
+        
     </body>
 </html>

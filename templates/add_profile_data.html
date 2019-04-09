@@ -2,6 +2,83 @@
 {% block content %}
 
 <h3>Add Profile Data</h3>
+<div class="row">
+    <form action="" method="POST"class="col s12">
+        <div class="row">
+            <div class="input-field col s3">
+                <i class="material-icons prefix">person_add</i>
+                <input id="player_name" name="player_name" type="text" class="validate">
+                <label for="icon_prefix">Player Name</label>
+            </div>
+        
+        <!-- DATEPICKER http://archives.materializecss.com/0.100.2/forms.html //-->
+            <div class="input-field col s3">
+                <i class="material-icons prefix">cake</i>
+                <input id="date_of_birth" name="date_of_birth" type="text" class="datepicker">
+                <label for="icon_prefix">Date of Birth</label>
+            </div>
+        </div>
+        
+        <!--  IMAGES IN SELECT //-->
+        <div class="row col s6" >
+            <div class="input-field col s4 m6">
+                <i class="material-icons prefix">subject</i>
+                <select class="icons">
+                      <option value="" disabled selected>Select Club</option>
+                      <optgroup label="Dublin Clubs">
+                      <option value="" data-icon="static/images/dublin.jpg" class="left circle">Ranelagh Gaels</option>
+                      <optgroup label="Longford Clubs">
+                      <option value="" data-icon="static/images/longford.jpg" class="left circle">Fr Manning Gaels</option>
+                      <optgroup label="Wicklow Clubs">
+                      <option value="" data-icon="static/images/wicklow.jpg" class="left circle">Bray Emmets</option>
+                    </select>
+<!--                <label>Select Club</label>        //-->
+            </div>
+            <div class="input-field col s4 m6">
+                <i class="material-icons prefix">subject</i>
+                <select class="icons">
+                      <option value="" disabled selected>Select County</option>
+                      <option value="" data-icon="static/images/dublin.jpg" class="left circle">Baile Atha Cliath</option>
+                      <option value="" data-icon="static/images/longford.jpg" class="left circle">Longfort</option>
+                      <option value="" data-icon="static/images/wicklow.jpg" class="left circle">Cill Mhantain</option>
+                    </select>
+<!--                <label>Select County</label>        //-->
+            </div>
+        </div>
+        
+        
+<!--
+        <div class="row">
+            <div class="input-field col s3">
+                <i class="material-icons prefix">person_add</i>
+                <input id="player_club" name="player_club" type="text" class="validate">
+                <label for="icon_prefix">Club</label>
+            </div>
+            <div class="input-field col s3">
+                <i class="material-icons prefix">cake</i>
+                <input id="player_county" name="player_county" type="text" class="validate">
+                <label for="icon_prefix">County</label>
+            </div>
+        </div>
+//-->
 
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea id="player_history" name="player_history" type="tel" class="materialize-textarea"></textarea>
+                <label for="icon_prefix">Playing History</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea id="player_background" name="player_background" type="tel" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Family Life</label>
+            </div>
+        </div>
+        
+
+    </form>
+</div>
 
 {% endblock %}
