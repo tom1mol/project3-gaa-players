@@ -77,4 +77,15 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 made .gitignore file
 
 
+libraries and scripts used:
+http://archives.materializecss.com/0.100.2/
+https://cdnjs.com/libraries/jquery
+https://material.io/tools/icons/?search=expand_more&style=baseline
+http://google.github.io/material-design-icons/
+
+
+
+
+
+
 
