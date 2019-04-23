@@ -24,7 +24,9 @@ def get_tasks():
 @app.route('/add_profile_data')
 def add_profile_data():
     return render_template('add_profile_data.html',
-    county_name=mongo.db.county_name.find())
+    county_name=mongo.db.county_name.find(),
+    height=mongo.db.height.find(),
+    weight=mongo.db.weight.find())
     
     
 if __name__ == "__main__":          
