@@ -20,7 +20,27 @@ def get_tasks():
     return render_template("player_profile.html", tasks=mongo.db.player_profile.find())
     
     
+#@app.route('/add_profile_data')
+#def add_profile_data():
+    
+#    heights = []
+#    weights = []
+    
+#    for types in mongo.db.height.find():
+#        height = types.get("player_height")
+#        for item in height:
+#            heights.append(item)
 
+
+#    for types in mongo.db.weight.find():
+#        weight = types.get("weight_in_kg")
+#        for item in weight:
+#            weights.append(item)
+            
+#    return render_template('add_profile_data.html',county_name=mongo.db.county_name.find(), height = height, weight = weight)
+    
+
+            
 @app.route('/add_profile_data')
 def add_profile_data():
     return render_template('add_profile_data.html',
@@ -28,6 +48,14 @@ def add_profile_data():
     height=mongo.db.height.find(),
     weight=mongo.db.weight.find())
     
+    
+@app.route('/insert_player_profile', methods= ['POST'])
+def insert_player_profile():
+    player_profile = mongo.db.player_profile
+    player_profile.insert_one(request.form.to_dict())
+    return redirect(url_for('get_tasks'))
+    
+
     
 if __name__ == "__main__":          
     app.run(host=os.getenv('IP', '0.0.0.0'), 

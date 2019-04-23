@@ -5,13 +5,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> 
         <!--http://archives.materializecss.com/0.100.2/getting-started.html //-->
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 4DATEPICKER //-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     </head>
     <body>
-        
+       <div class="container">
         {% block content %}
         
         {% endblock %}
-        
+       </div> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>                                     <!--https://cdnjs.com/libraries/jquery     //-->
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> FOR DATEPICKER   //-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>                      <!--http://archives.materializecss.com/0.100.2/getting-started.html    //-->

@@ -10,12 +10,22 @@
 <ul class="collapsible" data-collapsible="expandable">
     {% for task in tasks %}
     <li>
-        <div class="collapsible-header"><i class="material-icons">expand</i>
-        <strong>{{task.club_county}} - {{task.county}}</strong>
+        <div class="collapsible-header">
+        
+           <div class="col s3">
+               <i class="material-icons">expand_more</i>
+               <a class="waves-effect waves-light btn btn_small">Edit</a>
+               <a class="waves-effect waves-light btn btn_small red">Delete</a>
+               
+           </div>
+           <div class=" task_header col s9">
+               <strong>{{task.player_name}} - {{task.county_name}}</strong>
+           </div>
+        
         </div>
         <div class="collapsible-body">
             <span>
-                {{task.player_name}} -{{task.date_of_birth}}
+                {{task.player_name}} - {{task.date_of_birth}} - {{task.player_history}} - {{task.county_name}}
             </span></div>
     </li>
     {% endfor %}
