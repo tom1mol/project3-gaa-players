@@ -56,6 +56,14 @@ def insert_player_profile():
     return redirect(url_for('get_tasks'))
     
 
+@app.route('/edit_profile/<task_id>')
+def edit_profile(task_id):
+    the_task = mongo.db.task.find_one({"_id": ObjectId(task_id)})
+    all_categories = mongo.db.categories.find()
+    return render_template('edit_profile.html', task=the_task, categories=all_categories)
+    
+    
+
     
 if __name__ == "__main__":          
     app.run(host=os.getenv('IP', '0.0.0.0'), 
