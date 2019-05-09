@@ -3,7 +3,7 @@
 
 <h3>Add Profile Data</h3>
 <div class="row">
-    <form action="{{ url_for('insert_player_profile') }}" method="POST"class="col s12">
+    <form action="{{ url_for('insert_player_profile')}}" method="POST"class="col s12">
         <div class="row">
             <div class="input-field col s3">
                 <i class="material-icons prefix">person_add</i>
@@ -29,8 +29,8 @@
                     <i class="material-icons prefix">subject</i>
                     <select class="icons" id="height" name="height"> 
                         <option value="" disabled selected>Choose Height</option>
-                          {% for height in heights %}
-                              <option value="{{ height }}">{{ height }}</option>
+                          {% for i in height %}
+                              <option value="{{ i.height }}">{{ i.height }}</option>
                           {% endfor %}  
                     </select>
                    
@@ -75,22 +75,19 @@
         
         <div class="row col s6" >
                                     <!-- CLUBS//-->
-            <div class="input-field col s4 m6">
+            <div class="input-field col s6 m6">
                 <i class="material-icons prefix">subject</i>
                 <select class="icons" id="club" name="club_name">
-                      <option value="" disabled selected>Select Club</option>
-                      <optgroup label="Dublin Clubs">
-                      <option value="" data-icon="static/images/dublin.jpg" class="left circle">Ranelagh Gaels</option>
-                      <optgroup label="Longford Clubs">
-                      <option value="" data-icon="static/images/longford.jpg" class="left circle">Fr Manning Gaels</option>
-                      <optgroup label="Wicklow Clubs">
-                      <option value="" data-icon="static/images/wicklow.jpg" class="left circle">Bray Emmets</option>
+                    <option value="" disabled selected>Choose Club</option>
+                      {% for i in club_name %}
+                          <option value="{{ i.club_name }}">{{ i.club_name }}</option>
+                      {% endfor %}
                     </select>
 <!--                <label>Select Club</label>        //-->
             </div>
             
                                     <!-- COUNTIES//-->
-            <div class="input-field col s4 m6">
+            <div class="input-field col s6">
                 <i class="material-icons prefix">subject</i>
                 <select class="icons" id="county" name="county_name"> 
                     <option value="" disabled selected>Choose County</option>

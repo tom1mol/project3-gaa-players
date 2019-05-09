@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>Edit Profile Data</h3>
+<h3>Add Profile Data</h3>
 <div class="row">
-    <form action="{{ url_for('insert_player_profile') }}" method="POST"class="col s12">
+    <form action="{{url_for('insert_player_profile')}}" method="POST"class="col s12">
         <div class="row">
             <div class="input-field col s3">
                 <i class="material-icons prefix">person_add</i>
@@ -51,7 +51,25 @@
         
         
         
-
+<!--        
+        <div class="row">
+            <div class="input-field col s3">
+                <i class="material-icons prefix">person_add</i>
+                <input id="player_height" name="player_height" type="text" class="validate">
+                <label for="icon_prefix">Player Height</label>
+            </div>
+        
+        
+        
+        
+        
+            <div class="input-field col s3">
+                <i class="material-icons prefix">person_add</i>
+                <input id="player_weight" name="player_weight" type="text" class="validate">
+                <label for="icon_prefix">Player Weight</label>
+            </div>
+        </div>
+//-->
         
         <!--  IMAGES IN SELECT //-->
         
@@ -77,19 +95,37 @@
                 <select class="icons" id="county" name="county_name"> 
                     <option value="" disabled selected>Choose County</option>
                       {% for county_name in county_name %}
-                          {% if county_name.county_name == task.county_name %}
-                          <option value="{{county_name.county_name}}" selected>{{county_name.county_name}}</option>
-                          {% else %}
                           <option value="{{county_name.county_name}}">{{county_name.county_name}}</option>
-                          {% endif %}
-                      {% endfor %}  
+<!--                      <option value="" disabled selected>Select County</option>
+                      <optgroup label="Leinster Counties">
+                      <option value="" data-icon="static/images/dublin.jpg" class="left circle">Baile Atha Cliath</option>
+                      <option value="" data-icon="static/images/longford.jpg" class="left circle">Longfort</option>
+                      <option value="" data-icon="static/images/wicklow.jpg" class="left circle">Cill Mhantain</option>
+                      <optgroup label="Munster Counties">
+                      <option value="" data-icon="static/images/cork.jpg" class="left circle">Corcaigh</option>
+                      <optgroup label="Ulster Counties">
+                      <option value="" data-icon="static/images/tireoghain.jpg" class="left circle">Tir Eoghain</option>
+//-->               {% endfor %}  
                 </select>
 <!--                <label>Select County</label>        //-->
             </div>
         </div>
         
         
-
+<!--
+        <div class="row">
+            <div class="input-field col s3">
+                <i class="material-icons prefix">person_add</i>
+                <input id="player_club" name="player_club" type="text" class="validate">
+                <label for="icon_prefix">Club</label>
+            </div>
+            <div class="input-field col s3">
+                <i class="material-icons prefix">cake</i>
+                <input id="player_county" name="player_county" type="text" class="validate">
+                <label for="icon_prefix">County</label>
+            </div>
+        </div>
+//-->
 
         <div class="row">
             <div class="input-field col s12">

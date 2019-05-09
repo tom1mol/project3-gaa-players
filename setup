@@ -77,6 +77,10 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 made .gitignore file
 
 
+updated to jinja2:
+sudo pip3 install 'Jinja2==2.10.1' -- force update
+
+
 libraries and scripts used:
 http://archives.materializecss.com/0.100.2/
 https://cdnjs.com/libraries/jquery
